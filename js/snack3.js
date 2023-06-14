@@ -21,4 +21,12 @@ const bikeList = [
     }
 ];
 
+const minorWeight = bikeList[3];
 
+for (let i = 0; i < bikeList.length; i++){
+    if (bikeList[i].weight < minorWeight.weight){
+        minorWeight = bikeList[i];
+    }
+};
+
+console.log(minorWeight);
