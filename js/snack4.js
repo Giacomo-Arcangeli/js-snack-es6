@@ -5,39 +5,44 @@
 // Infine, usando il destructuring, creiamo un nuovo array i cui elementi contengono solo nomi e falli subiti e stampiamo tutto in console.
 
 
-const getUniqueRandomNumbers = (min, max, tot) => {
-    const numbers = [];
-    while (numbers. length < tot) {
-    let randomNumber;
-    do {
-    randomNumber = Math. floor (Math. random() * (max + 1 - min)) + min;
-    } while (numbers. includes(randomNumber));
-    numbers.push(randomNumber);
-    }
-    return numbers;
-};
+function getRandomNumber(min , max) {
+    return Math.floor(Math.random() * max + 1 - min) + min;
+  };
 
 
 const teamList = [
     {
         nome: 'Inter',
         punti: 0,
-        falli: 0
+        falli_subiti: 0
     },
     {
         nome: 'Milan',
         punti: 0,
-        falli: 0
+        falli_subiti: 0
     },
     {
         nome: 'Juve',
         punti: 0,
-        falli: 0
+        falli_subiti: 0
     },
     {
         nome: 'Roma',
         punti: 0,
-        falli: 0
+        falli_subiti: 0
     },
 ];
 
+teamList.forEach((team) => {
+    team.punti = getRandomNumber(0, 100);
+    team.falli_subiti = getRandomNumber(100, 300);
+});
+console.log(teamList);
+
+const noPointsList = teamList.map((team) => {
+    return {
+        nome: team.nome,
+        falli_subiti: team.falli_subiti
+    }
+});
+console.log(noPointsList);
