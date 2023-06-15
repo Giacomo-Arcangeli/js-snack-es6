@@ -13,20 +13,31 @@ const bikeList = [
     },
     {
         name: 'bike 3',
-        weight: 40
+        weight: 30
     },
     {
         name: 'bike 4',
-        weight: 30
+        weight: 90
     }
 ];
 
-const minorWeight = bikeList[3];
 
-for (let i = 0; i < bikeList.length; i++){
-    if (bikeList[i].weight < minorWeight.weight){
-        minorWeight = bikeList[i];
+const getLighestBike = bikeList => {
+
+    let lighestBike = bikeList[0];
+    
+    for (let i = 0; i < bikeList.length; i++){
+        
+        const currentBike = bikeList[i];    
+        
+        if (currentBike.weight < lighestBike.weight){
+            lighestBike = currentBike;
+        }
     }
-};
+    return lighestBike;
+}
 
-console.log(minorWeight);
+    
+let lighestBike = getLighestBike(bikeList);
+
+console.log(lighestBike);
